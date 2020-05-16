@@ -1,0 +1,3 @@
+rootProject.name='CounterWidgetLib'
+include ':app'
+include ':counterwidgetlibrary'
