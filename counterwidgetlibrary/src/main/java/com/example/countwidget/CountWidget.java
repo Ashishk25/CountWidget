@@ -142,7 +142,7 @@ public class CountWidget extends RelativeLayout {
             public void onClick(DialogInterface dialog, int i) {
                 m_Text = input.getText().toString();
                 if(!m_Text.isEmpty())
-                    textView.setText(m_Text);
+                    setNumber(m_Text,true);
                 dialog.dismiss();
             }
         }).create();
