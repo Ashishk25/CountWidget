@@ -6,6 +6,7 @@
             <attr name="initialNumber" format="float"/>
             <attr name="finalNumber" format="float" />
             <attr name="textColor" format="color"/>
+            <attr name="dialogButtonColor" format="color"/>
             <attr name="textSize" format="dimension"/>
             <attr name="leftDrawable" format="reference"/>
             <attr name="drawable" format="reference"/>

@@ -9,7 +9,9 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -70,6 +72,7 @@ public class CountWidget extends RelativeLayout {
         finalNumber = a.getFloat(R.styleable.CounterWidget_finalNumber, Float.MAX_VALUE);
         float textSize = a.getDimension(R.styleable.CounterWidget_textSize, 20);
         int color = a.getColor(R.styleable.CounterWidget_backGroundColor, defaultColor);
+        final int dialogButtonColor=a.getColor(R.styleable.CounterWidget_dialogButtonColor, defaultColor);
         int textColor = a.getColor(R.styleable.CounterWidget_textColor, defaultTextColor);
         Drawable leftDrawable = a.getDrawable(R.styleable.CounterWidget_leftDrawable);
         Drawable rightDrawable = a.getDrawable(R.styleable.CounterWidget_rightDrawable);
@@ -123,28 +126,33 @@ public class CountWidget extends RelativeLayout {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAlertDialog();
+                showAlertDialog(dialogButtonColor);
             }
         });
         a.recycle();
     }
 
-    private void showAlertDialog() {
+    private void showAlertDialog(final int dialogButtonColor) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Enter Quantity");
-        final EditText input = new EditText(context);
-        input.setHint("Quantity");
+        View dialogView= LayoutInflater.from(context).inflate(R.layout.dialog_layout,null,false);
+        final EditText input=dialogView.findViewById(R.id.input);
         input.setInputType(InputType.TYPE_CLASS_NUMBER |InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        builder.setView(input);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        final AlertDialog dialog=builder.setPositiveButton("OK",new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int i) {
                 m_Text = input.getText().toString();
                 if(!m_Text.isEmpty())
                     textView.setText(m_Text);
                 dialog.dismiss();
             }
+        }).create();
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(dialogButtonColor);
+            }
         });
+        builder.setView(dialogView);
         builder.show();
     }
 
