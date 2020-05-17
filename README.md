@@ -6,7 +6,7 @@ Android widget for no of items .Usefull in situation like shooping cart , orders
 ```
 dependencies {
 
-	        implementation 'com.github.Ashishk25:CountWidget:1.0'
+	        implementation 'com.github.Ashishk25:CountWidget:1.1'
 	}
 ```  
 ## or
