@@ -143,12 +143,13 @@ public class CountWidget extends RelativeLayout {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 m_Text = input.getText().toString();
-                double no=Double.parseDouble(m_Text);
-                DecimalFormat df = new DecimalFormat("#.#");
-                no= Double.valueOf(df.format(no));
-                m_Text=String.valueOf(no);
-                if(!m_Text.isEmpty())
+                if(!m_Text.isEmpty()){
+                    double no=Double.parseDouble(m_Text);
+                    DecimalFormat df = new DecimalFormat("#.#");
+                    no= Double.valueOf(df.format(no));
+                    m_Text=String.valueOf(no);
                     setNumber(m_Text,true);
+                }
                 dialog.dismiss();
             }
         }).create();
