@@ -135,7 +135,7 @@ public class CountWidget extends RelativeLayout {
     }
 
     private void showAlertDialog(final int dialogButtonColor) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context,R.style.AlertDialogCustom);
         View dialogView= LayoutInflater.from(context).inflate(R.layout.dialog_layout,null,false);
         final EditText input=dialogView.findViewById(R.id.input);
         input.setInputType(InputType.TYPE_CLASS_NUMBER |InputType.TYPE_NUMBER_FLAG_DECIMAL);
