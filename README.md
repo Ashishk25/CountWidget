@@ -1,5 +1,5 @@
 # CountWidget
-Android widget for no of items .Usefull in situation like shooping cart , orders etc
+Android widget for select no of items. Usefull in situations like shopping cart , orders etc
 
 ## add this to your build.gradle app
 
