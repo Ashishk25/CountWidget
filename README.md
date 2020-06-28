@@ -19,3 +19,5 @@ allprojects {
 		}
 	}
 ```  
+## Disclaimer
+This is a modification to ElegantNumberButton repo -https://github.com/ashik94vc/ElegantNumberButton
