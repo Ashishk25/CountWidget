@@ -3,6 +3,7 @@ Android widget for select no of items. Usefull in situations like shopping cart 
 
 <img src=https://github.com/Ashishk25/CountWidget/blob/master/Screenshot_20200629-222623.jpg height="300" width="200">
 
+on taping 0.0
 <img src=https://github.com/Ashishk25/CountWidget/blob/master/Screenshot_20200629-222628.jpg height="300" width="200">
 
 ## add this to your build.gradle app
